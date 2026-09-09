@@ -1,0 +1,12 @@
+# Core dependencies for the PyTorch/TRL DiffusionGemma SFT path.
+accelerate>=1.4.0
+datasets>=3.2.0
+einops>=0.8.0
+huggingface-hub[cli]>=0.30.2
+numpy>=1.26
+peft>=0.19.0
+safetensors>=0.3.3
+sentencepiece>=0.1.99
+torch==2.6.0
+transformers==5.12.1
+trl @ git+https://github.com/huggingface/trl.git@1bca49515ecd5b85d16e68c42c76670e252e19f1

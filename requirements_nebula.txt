@@ -1,0 +1,30 @@
+# Nebula requirements for DiffGemma RL training (diffgemma_trl path)
+# NOTE: pytorch280 image provides PyTorch 2.6 + ROCm 7 runtime
+#
+# DiffGemma uses Transformers fallback (--use_unsloth false) on AMD ROCm
+# because Unsloth requires CUDA/triton which is not available on ROCm.
+
+accelerate>=1.2.0
+deepspeed==0.16.7
+# peft & transformers: pre-built wheels on OSS (Nebula cannot access GitHub)
+/data/oss_bucket_0/wheels/diffgemma_trl/datasets-4.2.0.20251222110302-py3-none-any.whl
+/data/oss_bucket_0/wheels/diffgemma_trl/peft-0.19.2.dev0-py3-none-any.whl
+/data/oss_bucket_0/wheels/diffgemma_trl/transformers-5.13.0.dev0-py3-none-any.whl
+safetensors>=0.3.3
+sentencepiece>=0.1.99
+wandb>=0.19.1
+tqdm
+packaging>=23.0
+pandas>=2.0.0
+hf_transfer
+
+# DiffGemma requires transformers with DiffusionGemma model class (see wheel above).
+tokenizers>=0.22.0
+
+# TRL (GRPO trainer base)
+trl>=0.17.0
+
+# Math evaluation deps
+latex2sympy2_extended>=1.0.6
+math-verify==0.5.2
+sympy>=1.12

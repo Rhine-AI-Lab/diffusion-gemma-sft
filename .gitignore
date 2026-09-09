@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Virtual environments
+.venv/
+venv/
+
+# Secrets (HF_TOKEN etc) — never commit
+.env
+
+# SLURM / run artifacts
+logs/
+core_nid*
+*.core
+
+# Experiment output dirs (checkpoints, smoke runs, generated)
+xp_*/
+
+# Eval outputs: keep the curated results table, ignore raw per-run dumps
+eval_out/*
+!eval_out/RESULTS.md
+
+# SFT: large generated training data (regenerate from sudoku_train.bagz; see SFT_README)
+dataset/sudoku_train_full.jsonl
+# SFT: large generated OpenR1 math training data (regenerate via dataset/make_openr1_math_jsonl.py)
+dataset/openr1_math_sft_*.jsonl
+# SFT: large generated tmax terminal-agent training data (regenerate via dataset/make_tmax_jsonl.py)
+dataset/tmax_sft_*.jsonl
+
+# Training output dirs (LoRA checkpoints)
+out/
+
+# Weights & Biases run logs
+wandb/
+
+# TBLite eval: cloned task dataset + Harbor job outputs (see tblite_eval/README.md)
+tblite_eval/tasks/
+tblite_eval/tasks_subset/
+tblite_eval/jobs/
+tblite_eval/adapters/
+tblite_eval/merged_models/
+tblite_eval/tmax_tasks_sample300/
+tblite_eval/xp_agent_sft/
+tblite_eval/xp_agent_sft_v*/
+tblite_eval/xp_gate/
+tblite_eval/agent_sft_data.jsonl
+tblite_eval/agent_sft_data_v*.jsonl
+tblite_eval/gate_subset*.jsonl
+tblite_eval/__pycache__/
